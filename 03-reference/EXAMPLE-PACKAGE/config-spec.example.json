@@ -1,0 +1,38 @@
+{
+  "_note": "EXAMPLE — fictional Summit Peak Roofing. Your real spec is generated into 02-package/ by the interview. This is the machine-readable half: Jeffrey's build agent consumes it directly.",
+  "meta": { "company": "Summit Peak Roofing", "website": "summitpeakroofing.com", "vertical": "roofing-insurance", "region_hint": "us-central", "timezone": "America/Chicago", "contact": { "name": "Dana Ruiz", "role": "Operations Manager", "email": "dana@summitpeakroofing.com" }, "dogfood": false },
+  "trades": ["Roofing"],
+  "job_categories": [
+    { "name": "Insurance Claim", "purpose": "primary revenue line",
+      "statuses": [
+        { "name": "New Lead", "status_type": "NEW", "order": 1 },
+        { "name": "Inspection Scheduled", "status_type": "ON_HOLD", "order": 2, "advance_condition": "inspection booked w/ homeowner" },
+        { "name": "Estimate Written", "status_type": "ESTIMATING", "order": 3 },
+        { "name": "Approved", "status_type": "SOLD", "order": 4 },
+        { "name": "Build In Progress", "status_type": "STARTED", "order": 5 },
+        { "name": "Paid", "status_type": "COMPLETED", "order": 6 },
+        { "name": "No Damage / Lost", "status_type": "CANCELED", "order": 7 }
+      ] }
+  ],
+  "custom_field_groups": [
+    { "group_name": "Claim Information", "applies_to_category": "Insurance Claim",
+      "fields": [
+        { "label": "Insurance Carrier", "type": "SINGLE_LINE", "required": true, "purpose": "report dimension + docs" },
+        { "label": "Claim Number", "type": "SINGLE_LINE", "required": true, "purpose": "doc merge" },
+        { "label": "Damage Type", "type": "SINGLE_ITEM", "options": ["Hail", "Wind", "Other"], "purpose": "report dimension" },
+        { "label": "RCV", "type": "SINGLE_LINE", "purpose": "money reporting" },
+        { "label": "Deductible", "type": "SINGLE_LINE", "purpose": "money reporting" }
+      ] }
+  ],
+  "documents": [
+    { "name": "Certificate of Completion", "kind": "certificate", "trigger_stage": "Paid", "signed": true, "notes": "dollar amount MUST equal collected total" }
+  ],
+  "use_cases": [
+    { "id": "UC-003", "title": "COC dollar-match", "actor": "Office admin", "trigger": "final payment lands", "outcome": "COC generates with the exact collected amount", "scenario": "The Hendersons pay $18,940; the COC prints $18,940 — not the original $19,400 estimate." }
+  ],
+  "seed_plan": { "jobs": [ { "title": "Henderson — hail claim", "stage": "Paid", "field_values": { "Insurance Carrier": "State Farm", "Claim Number": "SF-229104" }, "money": { "invoice": 18940, "paid": true } } ], "money_flow": "yes" },
+  "reports": [ { "question": "Collected vs outstanding by crew, weekly", "depends_on_fields": ["RCV", "Deductible"] } ],
+  "users": [ { "name": "Dana Ruiz", "email": "dana@summitpeakroofing.com", "role_hint": "admin" } ],
+  "open_items": ["Supplements: stage or field?", "QBO sync phase 2?"],
+  "gaps_wishlist": ["CompanyCam photos on the job record"]
+}
