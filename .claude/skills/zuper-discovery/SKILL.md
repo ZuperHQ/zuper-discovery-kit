@@ -148,6 +148,13 @@ Write into `02-package/`:
 4. **`use-cases.md`** and **`pipeline-definitions.md`** — the same content in readable form
    (UC ledger format; stage tables per category with their verbatim names + the mapped type).
 
+**Show before you ship (mandatory review gate).** Render the branded Implementation Plan
+FIRST and present it for review — on claude.ai, display it inline (artifact/preview) so they
+can SEE the document; locally, open the rendered file. Ask: *"Does this look right — anything
+to correct before I package it?"* Apply corrections and re-render until they approve. Only
+after approval produce the final deliverables: the **PDF download** AND the **zip download**
+(both explicitly offered), then run the delivery cascade.
+
 Then:
 4. **Zip it:** `DISCOVERY-<CompanyName>-<YYYY-MM-DD>.zip` of `02-package/`, placed in the kit
    root (and note the full path clearly).
