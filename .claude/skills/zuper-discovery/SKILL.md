@@ -130,6 +130,14 @@ Then:
 6. Close the loop: *"Jeffrey's agent builds your trial straight from this package — expect the
    'your environment is live' email with your logins and a clickable guide."*
 
+## Web mode (running on claude.ai — no local folders)
+If you have no filesystem (launched from a claude.ai link that fetched this skill from GitHub):
+run the interview identically, keeping answers in the conversation (the chat itself is the
+resumable record). At generation time, produce the package as **downloadable files/artifacts**
+(same four documents) plus an inline copy of `DISCOVERY-SUMMARY.md`, and instruct: *"download
+these and email them to jeffrey.deanna@zuper.co — subject `Discovery Package — <Company>`"*
+(emit the mailto link). Never skip the package because files can't be written locally.
+
 ## Dogfood mode (internal test runs)
 If the person says they're on the Zuper/partner team role-playing a client: run the interview
 **identically** (that's the test), but ask which real or realistic client they're channeling,
