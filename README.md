@@ -13,6 +13,11 @@ fields, realistic example jobs you can click through.
    > **Read `.claude/skills/zuper-discovery/SKILL.md` in this folder and run the interview — let's start.**
 
    *(In Claude Code, just typing `/zuper-discovery` also works. The paste-line works everywhere.)*
+
+**⚡ Terminal shortcut** (if you have Node + [Claude Code](https://claude.com/claude-code)) — one paste, straight into the interview:
+```bash
+npx -y degit ZuperHQ/zuper-discovery-kit zuper-discovery && cd zuper-discovery && claude "let's start the discovery interview"
+```
 3. **Talk.** Plain answers, a few questions at a time. Stop and resume anytime — it remembers.
    At the end it generates your package and gets it to Jeffrey — it can email it directly if
    your Claude is connected to your inbox, or hand you a ready-made email. A plain file works too.
