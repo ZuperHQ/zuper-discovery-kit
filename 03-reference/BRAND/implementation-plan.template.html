@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><title>{{COMPANY}} × Zuper — Implementation Plan</title>
+<style>
+ @page { size: letter; margin: 0.7in; }
+ body { font-family: Arial, Helvetica, sans-serif; color:#3C4658; font-size:11.5px; line-height:1.55; margin:0; }
+ .bar { height:6px; background:#4A25E1; margin:0 0 18px 0; }
+ .head { display:flex; justify-content:space-between; align-items:center; }
+ .head img { height:32px; }
+ .head .date { color:#66708A; font-size:10px; }
+ h1 { color:#101A33; font-size:22px; margin:18px 0 2px 0; }
+ h1 .x { color:#4A25E1; }
+ .sub { color:#66708A; font-size:12px; margin:0 0 14px 0; }
+ h2 { color:#4A25E1; font-size:13px; text-transform:uppercase; letter-spacing:.06em; border-bottom:1px solid #ECEEF4; padding-bottom:4px; margin:20px 0 8px 0; }
+ table { width:100%; border-collapse:collapse; }
+ td, th { text-align:left; padding:5px 8px; vertical-align:top; }
+ th { color:#101A33; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; border-bottom:2px solid #4A25E1; }
+ tr:nth-child(even) td { background:#F7F6FE; }
+ .panel { background:#F7F6FE; border-radius:8px; padding:10px 14px; margin:6px 0; }
+ .pill { display:inline-block; background:#4A25E1; color:#fff; border-radius:10px; padding:1px 9px; font-size:10px; margin-right:4px; }
+ .flow { color:#101A33; font-weight:bold; }
+ .footer { margin-top:26px; padding-top:10px; border-top:1px solid #ECEEF4; color:#66708A; font-size:10px; }
+ strong { color:#101A33; }
+</style></head><body>
+<div class="bar"></div>
+<div class="head"><img src="https://raw.githubusercontent.com/ZuperHQ/zuper-discovery-kit/main/03-reference/BRAND/zuper-logo.png" alt="Zuper"><span class="date">{{DATE}} · Discovery v{{KIT_VERSION}}</span></div>
+<h1>{{COMPANY}} <span class="x">×</span> Zuper — Implementation Plan</h1>
+<p class="sub">Built from your discovery conversation with {{CONTACT_NAME}} ({{CONTACT_ROLE}}) · {{LOCATIONS}}</p>
+
+<h2>Business snapshot</h2><div class="panel">{{SNAPSHOT}}</div>
+<h2>Services &amp; pricing</h2>{{SERVICES_TABLE}}
+<h2>The job lifecycle</h2><p class="flow">{{PIPELINE_FLOW}}</p>{{LIFECYCLE_NOTES}}
+<h2>Data captured &amp; documents</h2>{{DATA_DOCS}}
+<h2>External systems</h2>{{INTEGRATIONS}}
+<h2>What you'll see in your trial</h2>{{DEMO_PRIORITIES}}
+<h2>Flagged interests</h2>{{PRODUCT_INTERESTS}}
+<h2>Open items</h2>{{OPEN_ITEMS}}
+<h2>Next steps</h2><div class="panel">Your trial is built directly from this plan — expect the <strong>“your environment is live”</strong> email with logins and a clickable guide, then a walkthrough call to refine together.</div>
+<div class="footer">Prepared by the Zuper Discovery Kit · Jeffrey DeAnna · jeffrey.deanna@zuper.co · 862-703-8773</div>
+</body></html>

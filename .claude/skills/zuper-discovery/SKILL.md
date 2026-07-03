@@ -109,10 +109,14 @@ capabilities enabled/seeded so the walkthrough demos them against their own scen
 
 Write into `02-package/`:
 
-1. **`DISCOVERY-SUMMARY.pdf`** — the forwardable artifact. ALWAYS deliver the human summary
-   as a PDF, automatically — never offer a format choice (no "PDF or Markdown?" menus). On
-   claude.ai: emit it as a downloadable PDF file. Locally: render print-ready HTML and convert
-   (or note it prints to PDF in one step). Keep the `.md` source alongside it.
+1. **`<Company>-Zuper-Implementation-Plan.pdf`** — the forwardable artifact, ALWAYS a PDF,
+   automatically — never offer a format choice. **Render it Zuper-branded** using
+   `03-reference/BRAND/implementation-plan.template.html` (web mode: fetch it from
+   https://raw.githubusercontent.com/ZuperHQ/zuper-discovery-kit/main/03-reference/BRAND/implementation-plan.template.html
+   and the logo from the BRAND folder's raw URL; tokens in `03-reference/BRAND/brand.md`).
+   Fill every {{PLACEHOLDER}} from the interview; drop sections that are truly empty. On
+   claude.ai: emit as a downloadable PDF. Locally: write the filled HTML and convert to PDF
+   (or note it prints in one step). Keep the `.md` source alongside it.
 2. **`DISCOVERY-SUMMARY.md`** — the human read: company snapshot, how work flows, the
    stages in their words, what they track/send, systems, the must-win use cases, the Monday
    report, open items. Written so Jeffrey reads it in 3 minutes.
