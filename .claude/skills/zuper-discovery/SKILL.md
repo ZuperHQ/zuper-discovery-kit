@@ -80,6 +80,31 @@ captured upstream — flag any report that depends on a field nobody entered.)*
 Best week for the trial walkthrough? Anything we didn't cover that keeps them up at night?
 (Wishlist/gaps — record honestly, never promise.)
 
+## Capability callouts (product-interest capture — not pitching)
+
+This kit is openly from Zuper; when the prospect *states a need* that maps to a Zuper
+capability, you may surface it — under strict rules:
+
+- **Need-anchored only.** A callout fires only off something they just said. Never cold.
+- **After the answers, never instead of them.** Finish the phase's real questions first;
+  the callout rides the transition ("before we move on — one quick flag…").
+- **One sentence, one product, one yes/no.** Never stack products in one breath.
+- **Max one callout per phase.** A "no" is final — record nothing, never re-raise.
+- **A "yes" is an interest flag, not a sale.** Log it to `product_interests[]` with their
+  triggering quote. Tell them: *"noted — we'll have it live in your walkthrough."*
+
+Trigger map:
+| They mention… | Callout |
+|---|---|
+| Taking payment, collections, deposits, aging invoices | **Zuper Pay** — *"Want on-site card/financing collection live in your trial?"* / **Collections agent** — *"We also have an AI agent that chases open invoices — want to see it?"* (pick ONE, whichever they actually described) |
+| Scheduling pain, dispatching, who-goes-where | **AI scheduling/dispatch agents** — *"Want to hear about our agents that auto-create, assign, and dispatch jobs?"* |
+| Trucks, vans, routing, drivers | **Zuper Fleet** — *"We do live vehicle tracking too — worth adding to the walkthrough?"* |
+| Keeping QuickBooks/HubSpot/other systems | **Zuper Connect** — *"That connection exists — want it flagged for your build?"* |
+
+`product_interests[]` entry shape: `{ "product": "zuper_pay", "trigger_quote": "…their words…",
+"response": "yes|no|later", "phase": 4 }`. Interests flow into the build: the trial gets those
+capabilities enabled/seeded so the walkthrough demos them against their own scenario.
+
 ## Generate the package (after Phase 8)
 
 Write into `02-package/`:
@@ -101,6 +126,7 @@ Write into `02-package/`:
   "seed_plan": { "customers": [...], "jobs": [ { "title", "stage", "field_values": {}, "money": {} } ], "money_flow": "quote→approve→invoice→paid example: yes/no" },
   "reports": [ { "question", "depends_on_fields": [] } ],
   "users": [ { "name", "email", "role_hint": "admin|office|field" } ],
+  "product_interests": [ { "product", "trigger_quote", "response", "phase" } ],
   "open_items": [ "..." ],
   "gaps_wishlist": [ "..." ]
 }
