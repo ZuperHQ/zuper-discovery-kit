@@ -62,7 +62,7 @@ What documents go out or get signed: quotes, invoices, contracts, certificates, 
 completion certs? Any that trigger at specific stages? *(→ custom fields, checklists, document
 templates, PDF-on-status flows.)*
 
-**Phase 5 · Systems.** What software today (CRM, accounting, estimating, photos, scheduling)?
+**Phase 5 · Systems (MANDATORY — never generate a package without this answered).** What software today (CRM, accounting, estimating, photos, scheduling)?
 What stays (needs to connect) vs. what Zuper replaces? Where does money/accounting live?
 Anything they'd want flowing in or out automatically? *(→ integrations + migration scope.)*
 
@@ -109,10 +109,14 @@ capabilities enabled/seeded so the walkthrough demos them against their own scen
 
 Write into `02-package/`:
 
-1. **`DISCOVERY-SUMMARY.md`** — the human read: company snapshot, how work flows, the
+1. **`DISCOVERY-SUMMARY.pdf`** — the forwardable artifact. ALWAYS deliver the human summary
+   as a PDF, automatically — never offer a format choice (no "PDF or Markdown?" menus). On
+   claude.ai: emit it as a downloadable PDF file. Locally: render print-ready HTML and convert
+   (or note it prints to PDF in one step). Keep the `.md` source alongside it.
+2. **`DISCOVERY-SUMMARY.md`** — the human read: company snapshot, how work flows, the
    stages in their words, what they track/send, systems, the must-win use cases, the Monday
    report, open items. Written so Jeffrey reads it in 3 minutes.
-2. **`config-spec.json`** — the machine spec the build agent consumes:
+3. **`config-spec.json`** — the machine spec the build agent consumes:
 ```json
 {
   "meta": { "company", "website", "vertical", "region_hint", "timezone", "contact": {"name","role","email"}, "generated_at" },
@@ -137,7 +141,7 @@ Write into `02-package/`:
    STARTED, done → COMPLETED, dead → CANCELED, waiting → ON_HOLD). Field `type` must be one of
    `SINGLE_LINE, SINGLE_ITEM, MULTI_LINE, FILE, NUMBER, DATE` (single-select w/ options →
    SINGLE_ITEM; long text → MULTI_LINE; photo/doc → FILE). Never invent values outside these.
-3. **`use-cases.md`** and **`pipeline-definitions.md`** — the same content in readable form
+4. **`use-cases.md`** and **`pipeline-definitions.md`** — the same content in readable form
    (UC ledger format; stage tables per category with their verbatim names + the mapped type).
 
 Then:
@@ -172,6 +176,10 @@ and add a final question: *"Out of character — what was confusing, missing, or
 their answers go in `FEEDBACK.md` inside the package.
 
 ## Quality bar before zipping
+- **Integrations asked and answered** — external systems (accounting, CRM/lead-gen, photos,
+  estimating) are part of every implementation. If Phase 5 somehow got compressed or skipped,
+  STOP and ask now: *"Which external systems does this need to connect to — upstream (leads in)
+  and downstream (accounting out)?"* A package without an integrations answer is incomplete.
 - Every use case has a concrete scenario (a story with a name and numbers, not a category).
 - Every pipeline has an entry stage, at least one terminal stage, and no stage nobody can reach.
 - Every report question maps to fields that exist in the spec (or is flagged in open_items).
